@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "China Pharma RUG Meeting 2023 demo2",
+    "section": "",
+    "text": "template metadatabinding functionRStuido UItestdemo2\n\n\n\n\n\ncrug_skeleton.dcf\n\nBinding: crug_skeleton\nTitle: China Pharma RUG Demo2\nOpenFiles: dev/01_dev.R, docs/index.qmd\nIcon: demo.png\n\nParameter: with_git\nWidget: CheckboxInput\nLabel: Create a git repository\nDefault: On\nPosition: left\n\nParameter: with_renv\nWidget: CheckboxInput\nLabel: Use renv\nDefault: On\nPosition: left\n\nParameter: python_venv\nWidget: CheckboxInput\nLabel: Python venv\nDefault: On\nPosition: left\n\nParameter: quarto_site\nWidget: CheckboxInput\nLabel: Create Quarto Site\nDefault: On\nPosition: left\n\n\n\n\n\n\n\ncrug_skeleton.R\n\ncrug_skeleton <- function(path, ...) {\n    # ensure path exists\n    dir.create(path, recursive = TRUE, showWarnings = FALSE)\n\n    dev_dir <- fs::path(path, \"dev\")\n    dir.create(dev_dir, recursive = TRUE, showWarnings = FALSE)\n\n    file.copy(\n        from = system.file(\"dev\", \"01_dev.R\", package = \"crugdemo2\", mustWork = TRUE),\n        to = dev_dir,\n        recursive = TRUE\n    )\n\n    dots <- list(...)\n\n    if (dots$quarto_site) {\n        quarto_site <- list.files(\n            system.file(\"quarto_site\", package = \"crugdemo2\", mustWork = TRUE),\n            full.names = TRUE,\n            include.dirs = TRUE,\n            recursive = FALSE\n        )\n\n        docs_dir <- fs::path(path, \"docs\")\n\n        dir.create(docs_dir, recursive = TRUE, showWarnings = FALSE)\n\n        file.copy(\n            from = quarto_site,\n            to = docs_dir,\n            overwrite = TRUE,\n            recursive = TRUE\n        )\n    }\n\n    if (dots$with_git) {\n        cli::cat_rule(\"Initializing git repository\")\n        git_output <- system(\n            command = paste(\"git init\", path),\n            ignore.stdout = TRUE,\n            ignore.stderr = TRUE\n        )\n        if (git_output) {\n            cli::cat_rule(\"Error initializing git epository\")\n        } else {\n            cli::cat_rule(\"Initialized git repository\")\n        }\n    }\n\n    if (dots$python_venv) {\n        python_venv_dir <- fs::path(path, \"pyenv\")\n        reticulate::virtualenv_create(python_venv_dir)\n    }\n\n    if (dots$with_renv) renv::init(path)\n}"
+  },
+  {
+    "objectID": "index.html#final-product",
+    "href": "index.html#final-product",
+    "title": "China Pharma RUG Meeting 2023 demo2",
+    "section": "2 final product",
+    "text": "2 final product\n\n2.1 RStudio UI\n\n\n\n2.2 testdemo2 project"
+  },
+  {
+    "objectID": "index.html#references",
+    "href": "index.html#references",
+    "title": "China Pharma RUG Meeting 2023 demo2",
+    "section": "3 References",
+    "text": "3 References\nhttps://r-pkgs.org/whole-game.html#use_r\nhttps://openpharma.github.io/workshop-r-swe/listing.html\nhttps://github.com/rstudio/ptexamples"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "China Pharma RUG’s goal is to provide a platform for attendees to share knowledge and explore innovative solutions with R for pharmaceutical industry. This is the first conference of its kind, and we’re excited to bring together experts and professionals from across the industry to share their experiences and insights.\nFollow China Pharma RUG:"
+  }
+]
