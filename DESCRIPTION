@@ -13,3 +13,5 @@ Imports:
     fs,
     renv,
     reticulate
+URL: https://github.com/ifendo/crugdemo2
+BugReports: https://github.com/ifendo/crugdemo2/issues
