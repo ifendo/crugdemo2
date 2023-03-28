@@ -1,0 +1,31 @@
+Binding: crug_skeleton
+Title: China Pharma RUG Demo2
+OpenFiles: dev/01_dev.R, docs/index.qmd
+Icon: demo.png
+
+Parameter: with_git
+Widget: CheckboxInput
+Label: Create a git repository
+Default: On
+Position: left
+
+Parameter: with_renv
+Widget: CheckboxInput
+Label: Use renv
+Default: On
+Position: left
+
+Parameter: python_venv
+Widget: CheckboxInput
+Label: Python venv
+Default: On
+Position: left
+
+Parameter: quarto_site
+Widget: CheckboxInput
+Label: Create Quarto Site
+Default: On
+Position: left
+
+
+

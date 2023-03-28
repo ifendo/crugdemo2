@@ -1,0 +1,143 @@
+---
+title: "China Pharma RUG Meeting 2023 demo2"
+format:
+    html: 
+        code-line-numbers: true
+        number-sections: true
+---
+
+
+## template metadata and binding function
+
+:::{.panel-tabset}
+
+## template metadata
+
+```{default, filename="crug_skeleton.dcf"}
+#| eval: false
+
+Binding: crug_skeleton
+Title: China Pharma RUG Demo2
+OpenFiles: dev/01_dev.R, docs/index.qmd
+Icon: demo.png
+
+Parameter: with_git
+Widget: CheckboxInput
+Label: Create a git repository
+Default: On
+Position: left
+
+Parameter: with_renv
+Widget: CheckboxInput
+Label: Use renv
+Default: On
+Position: left
+
+Parameter: python_venv
+Widget: CheckboxInput
+Label: Python venv
+Default: On
+Position: left
+
+Parameter: quarto_site
+Widget: CheckboxInput
+Label: Create Quarto Site
+Default: On
+Position: left
+
+```
+
+## binding function
+
+```{r, filename="crug_skeleton.R"}
+
+crug_skeleton <- function(path, ...) {
+    # ensure path exists
+    dir.create(path, recursive = TRUE, showWarnings = FALSE)
+
+    dev_dir <- fs::path(path, "dev")
+    dir.create(dev_dir, recursive = TRUE, showWarnings = FALSE)
+
+    file.copy(
+        from = system.file("dev", "01_dev.R", package = "crugdemo2", mustWork = TRUE),
+        to = dev_dir,
+        recursive = TRUE
+    )
+
+    dots <- list(...)
+
+    if (dots$quarto_site) {
+        quarto_site <- list.files(
+            system.file("quarto_site", package = "crugdemo2", mustWork = TRUE),
+            full.names = TRUE,
+            include.dirs = TRUE,
+            recursive = FALSE
+        )
+
+        docs_dir <- fs::path(path, "docs")
+
+        dir.create(docs_dir, recursive = TRUE, showWarnings = FALSE)
+
+        file.copy(
+            from = quarto_site,
+            to = docs_dir,
+            overwrite = TRUE,
+            recursive = TRUE
+        )
+    }
+
+    if (dots$with_git) {
+        cli::cat_rule("Initializing git repository")
+        git_output <- system(
+            command = paste("git init", path),
+            ignore.stdout = TRUE,
+            ignore.stderr = TRUE
+        )
+        if (git_output) {
+            cli::cat_rule("Error initializing git epository")
+        } else {
+            cli::cat_rule("Initialized git repository")
+        }
+    }
+
+    if (dots$python_venv) {
+        python_venv_dir <- fs::path(path, "pyenv")
+        reticulate::virtualenv_create(python_venv_dir)
+    }
+
+    if (dots$with_renv) renv::init(path)
+}
+
+
+```
+
+## RStuido UI
+
+![](images/rstudio_ui.png)
+
+## `testdemo2`
+
+![](images/testdemo2.png)
+
+:::
+
+## final product
+
+### RStudio UI
+
+![](images/rstudio_ui.png)
+
+
+### `testdemo2` project
+
+![](images/testdemo2.png)
+
+
+
+## References
+
+<https://r-pkgs.org/whole-game.html#use_r>
+
+<https://openpharma.github.io/workshop-r-swe/listing.html>
+
+<https://github.com/rstudio/ptexamples>

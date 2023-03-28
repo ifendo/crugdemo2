@@ -1,0 +1,9 @@
+---
+title: "About"
+---
+
+China Pharma RUG's goal is to provide a platform for attendees to share knowledge and explore innovative solutions with R for pharmaceutical industry. This is the first conference of its kind, and we're excited to bring together experts and professionals from across the industry to share their experiences and insights.
+
+Follow China Pharma RUG: 
+
+![](images/qrcode.bmp)
