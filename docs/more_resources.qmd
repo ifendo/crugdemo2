@@ -1,0 +1,561 @@
+---
+title: "Learn from experts"
+format:
+    html: 
+        code-line-numbers: true
+        number-sections: true
+---
+
+## golem
+<https://github.com/ThinkR-open/golem>
+
+:::{.panel-tabset}
+
+## binding function
+
+```{r, filename="create_golem.R"}
+#| eval: false
+
+# to be used in RStudio "new project" GUI
+create_golem_gui <- function(path, ...) {
+    dots <- list(...)
+    attempt::stop_if_not(
+        dots$project_hook,
+        ~ grepl("::", .x),
+        "{golem} project templates must be explicitely namespaced (pkg::fun)"
+    )
+    splt <- strsplit(dots$project_hook, "::")
+    project_hook <- getFromNamespace(
+        splt[[1]][2],
+        splt[[1]][1]
+    )
+    create_golem(
+        path = path,
+        open = FALSE,
+        without_comments = dots$without_comments,
+        project_hook = project_hook,
+        check_name = dots$check_name,
+        with_git = dots$with_git
+    )
+}
+
+
+```
+
+## binding function - source `create_golem()`
+
+```{r, filename="create_golem.R"}
+#| eval: false
+
+create_golem <- function(
+    path,
+    check_name = TRUE,
+    open = TRUE,
+    overwrite = FALSE,
+    package_name = basename(path),
+    without_comments = FALSE,
+    project_hook = golem::project_hook,
+    with_git = FALSE,
+    ...) {
+    path_to_golem <- normalizePath(
+        path,
+        mustWork = FALSE
+    )
+
+    if (check_name) {
+        cli_cat_rule("Checking package name")
+        rlang::check_installed(
+            "usethis",
+            version = "1.6.0",
+            reason = "to check the package name."
+        )
+        getFromNamespace(
+            "check_package_name",
+            "usethis"
+        )(package_name)
+        cat_green_tick("Valid package name")
+    }
+
+
+    if (fs_dir_exists(path_to_golem)) {
+        if (!isTRUE(overwrite)) {
+            stop(
+                paste(
+                    "Project directory already exists. \n",
+                    "Set `create_golem(overwrite = TRUE)` to overwrite anyway.\n",
+                    "Be careful this will restore a brand new golem. \n",
+                    "You might be at risk of losing your work !"
+                ),
+                call. = FALSE
+            )
+        } else {
+            cat_red_bullet("Overwriting existing project.")
+        }
+    } else {
+        cli_cat_rule("Creating dir")
+        usethis_create_project(
+            path = path_to_golem,
+            open = FALSE
+        )
+        if (!file.exists(".here")) {
+            here::set_here(path_to_golem)
+        }
+        cat_green_tick("Created package directory")
+    }
+
+
+    cli_cat_rule("Copying package skeleton")
+    from <- golem_sys("shinyexample")
+
+    # Copy over whole directory
+    fs_dir_copy(
+        path = from,
+        new_path = path_to_golem,
+        overwrite = TRUE
+    )
+
+    # Listing copied files ***from source directory***
+    copied_files <- list.files(
+        path = from,
+        full.names = FALSE,
+        all.files = TRUE,
+        recursive = TRUE
+    )
+
+    replace_package_name(
+        copied_files,
+        package_name,
+        path_to_golem
+    )
+
+    cat_green_tick("Copied app skeleton")
+
+    old <- setwd(path_to_golem)
+
+    cli_cat_rule("Running project hook function")
+
+    # TODO fix
+    # for some weird reason test() fails here when using golem::create_golem
+    # and I don't have time to search why rn
+    if (substitute(project_hook) == "golem::project_hook") {
+        project_hook <- getFromNamespace("project_hook", "golem")
+    }
+    project_hook(
+        path = path_to_golem,
+        package_name = package_name,
+        ...
+    )
+
+    setwd(old)
+
+    cat_green_tick("All set")
+
+
+    if (isTRUE(without_comments)) {
+        files <- list.files(
+            path = c(
+                file.path(path_to_golem, "dev"),
+                file.path(path_to_golem, "R")
+            ),
+            full.names = TRUE
+        )
+        for (file in files) {
+            remove_comments(file)
+        }
+    }
+
+
+    if (isTRUE(with_git)) {
+        cli_cat_rule("Initializing git repository")
+        git_output <- system(
+            command = paste("git init", path_to_golem),
+            ignore.stdout = TRUE,
+            ignore.stderr = TRUE
+        )
+        if (git_output) {
+            cat_red_bullet("Error initializing git epository")
+        } else {
+            cat_green_tick("Initialized git repository")
+        }
+    }
+
+
+    old <- setwd(path_to_golem)
+
+    if (!requireNamespace("desc", quietly = TRUE)) {
+        check_desc_installed()
+    } # incase of {desc} not installed by {usethis}
+
+    usethis_use_latest_dependencies()
+
+    # No .Rprofile for now
+    # cli_cat_rule("Appending .Rprofile")
+    # write("# Sourcing user .Rprofile if it exists ", ".Rprofile", append = TRUE)
+    # write("home_profile <- file.path(", ".Rprofile", append = TRUE)
+    # write("  Sys.getenv(\"HOME\"), ", ".Rprofile", append = TRUE)
+    # write("  \".Rprofile\"", ".Rprofile", append = TRUE)
+    # write(")", ".Rprofile", append = TRUE)
+    # write("if (file.exists(home_profile)){", ".Rprofile", append = TRUE)
+    # write("  source(home_profile)", ".Rprofile", append = TRUE)
+    # write("}", ".Rprofile", append = TRUE)
+    # write("rm(home_profile)", ".Rprofile", append = TRUE)
+    #
+    # write("# Setting shiny.autoload.r to FALSE ", ".Rprofile", append = TRUE)
+    # write("options(shiny.autoload.r = FALSE)", ".Rprofile", append = TRUE)
+    # cat_green_tick("Appended")
+
+    setwd(old)
+
+    cli_cat_rule("Done")
+
+    cli_cat_line(
+        paste0(
+            "A new golem named ",
+            package_name,
+            " was created at ",
+            path_to_golem,
+            " .\n",
+            "To continue working on your app, start editing the 01_start.R file."
+        )
+    )
+
+    check_dev_deps_are_installed()
+
+
+    if (isTRUE(open)) {
+        if (
+            rlang::is_installed("rstudioapi") &&
+                rstudioapi::isAvailable() &&
+                rstudioapi::hasFun("openProject")
+        ) {
+            rstudioapi::openProject(path = path)
+        } else {
+            setwd(path)
+        }
+    }
+
+    return(
+        invisible(
+            path_to_golem
+        )
+    )
+}
+
+```
+
+## Metadata
+```{default, filename="create_golem.dcf"}
+
+Binding: create_golem_gui
+Title: Package for Shiny App using golem
+OpenFiles: dev/01_start.R
+Icon: golem.png
+
+Parameter: without_comments
+Widget: CheckboxInput
+Label: Start my project without golem comments
+Default: Off
+Position: left
+
+Parameter: project_hook
+Widget: TextInput
+Label: Hook function to run during project creation
+Default: golem::project_hook
+Position: left
+
+Parameter: check_name
+Widget: CheckboxInput
+Label: Perform a Check on the name
+Default: On
+Position: left
+
+Parameter: with_git
+Widget: CheckboxInput
+Label: Create a git repository
+Default: Off
+Position: left
+
+```
+:::
+
+
+## bookdown
+<https://github.com/rstudio/bookdown>
+
+:::{.panel-tabset}
+
+## binding function
+
+```{r, filename="skeleton.R"}
+#| eval: false
+
+# this is the function used for the RStudio project template
+
+bookdown_skeleton <- function(path, output_format = skeleton_formats()) {
+    output_format <- match.arg(output_format)
+    # ensure directory exists
+    dir.create(path, recursive = TRUE, showWarnings = FALSE)
+    path <- xfun::normalize_path(path)
+
+    # Get common resources
+    files <- skeleton_get_files("common")
+    files_format <- skeleton_get_files(output_format)
+    # copy them to path
+    source <- file.path(skeleton_get_dir(), c(files, files_format))
+    # common resource are copied without folder
+    target <- file.path(path, c(xfun::relative_path(files, "common"), files_format))
+
+    lapply(unique(dirname(target)), dir_create)
+    file.copy(source, target)
+
+    # Tweak template file
+    skeleton_build_index(path, output_format)
+    skeleton_build_output_yml(path, output_format)
+    skeleton_build_bookdown_yml(path, output_format)
+    move_dir(file.path(path, output_format), path) # move left format files
+    skeleton_remove_blocks(path, output_format)
+
+    # Get missing assets
+    if (output_format == "bs4_book") {
+        skeleton_get_csl(path, "chicago-fullnote-bibliography")
+    }
+
+    invisible(TRUE)
+}
+
+```
+
+## Metadata
+```{default, filename="skeleton.dcf"}
+Title: Book project using bookdown
+OpenFiles: README.md, index.Rmd, _bookdown.yml, _output.yml
+Icon: book.png
+Binding: bookdown_skeleton
+Parameter: output_format
+Widget: SelectInput
+Label: Select HTML book format
+Fields: gitbook, bs4_book
+Default: gitbook
+Position: left
+
+```
+:::
+
+
+## blogdown
+
+<https://github.com/rstudio/blogdown>
+
+:::{.panel-tabset}
+
+## binding function
+
+```{r, filename="package.R"}
+#| eval: false
+
+blogdown_skeleton <- function(path, ...) {
+    opts <- options(blogdown.open_sample = FALSE)
+    on.exit(options(opts), add = TRUE)
+    new_site(dir = path, ..., serve = FALSE)
+}
+
+```
+## binding function - source `new_site()`
+
+```{r, filename="hugo.R"}
+#| eval: false
+new_site <- function(
+    dir = ".", force = NA, install_hugo = TRUE, format = "yaml", sample = TRUE,
+    theme = "yihui/hugo-lithium", hostname = "github.com", theme_example = TRUE,
+    empty_dirs = FALSE, to_yaml = TRUE, netlify = TRUE, .Rprofile = TRUE,
+    serve = if (interactive()) "ask" else FALSE) {
+    msg_init("Creating your new site")
+    opts$set(site_root = NULL) # invalidate the previously stored site root
+    if (is.na(force)) {
+        files <- grep(
+            "([.]Rproj|/(LICENSE|README)([.][a-z]+)?)$", list_files(dir),
+            invert = TRUE, value = TRUE
+        )
+        force <- length(files) == 0
+        if (!force) {
+            force <- yes_no(sprintf("The directory '%s' is not empty. Create the site anyway?", dir))
+            if (!force) {
+                stop(
+                    "The dir is not empty and Hugo might override existing files. If you are ",
+                    "sure the site can be created in this dir, use new_site(force = TRUE)."
+                )
+            }
+        }
+    }
+    if (install_hugo && !hugo_available()) {
+        msg_next("Installing Hugo")
+        install_hugo()
+    }
+    if (is.logical(format)) format <- if (format) "yaml" else "toml"
+    if (hugo_cmd(
+        c("new", "site", shQuote(path.expand(dir)), if (force) "--force", "-f", format),
+        stdout = FALSE
+    ) != 0) {
+        return(invisible())
+    }
+
+    owd <- setwd(dir)
+    opt <- opts$get()
+    opts$restore()
+    on.exit(
+        {
+            opts$restore(opt)
+            setwd(owd)
+        },
+        add = TRUE
+    )
+
+    # remove Hugo's default archetype (I think draft: true is a confusing default)
+    unlink(file.path("archetypes", "default.md"))
+    # remove empty dirs
+    if (!empty_dirs) for (d in list.dirs(recursive = FALSE)) del_empty_dir(d)
+    if (is.character(theme) && length(theme) == 1 && !is.na(theme)) {
+        msg_next("Installing the theme ", theme, " from ", hostname)
+        install_theme(theme, theme_example, hostname = hostname)
+    }
+    # remove the .gitignore that ignores everything under static/:
+    # https://github.com/rstudio/blogdown/issues/320
+    if (file.exists(gitignore <- file.path("static", ".gitignore"))) {
+        if (any(xfun::read_utf8(gitignore) == "*")) unlink(gitignore)
+    }
+
+    if (sample) {
+        lang <- get_lang()
+        d <- file.path("content", c("blog", "posts", "post"))
+        d <- c(file.path("content", lang, basename(d)), d)
+        for (i in d) if (dir_exists(i)) break
+        d <- i
+        f1 <- pkg_file("resources", "2020-12-01-r-rmarkdown.Rmd")
+        if (use_bundle()) d <- file.path(d, basename(xfun::sans_ext(f1)))
+        f2 <- file.path(d, if (use_bundle()) "index.Rmd" else basename(f1))
+        # for a multilingual site, create the sample post via new_content() because
+        # the post may need to be under a language dir (#537)
+        if (length(lang)) {
+            f2 <- sub(sprintf("^content/(%s/)?", lang), "", f2)
+            f2 <- sub("^(.+[.])", sprintf("\\1%s.", lang), f2)
+            f2 <- new_content(f2, open = FALSE)
+            file.remove(f2)
+        } else {
+            dir_create(d)
+        }
+        msg_next("Adding the sample post to ", f2)
+        file.copy(f1, f2)
+        if (getOption("blogdown.open_sample", TRUE)) open_file(f2)
+    }
+    if (!file_exists("index.Rmd")) create_index()
+
+    if (to_yaml) {
+        msg_next("Converting all metadata to the YAML format")
+        hugo_convert("YAML", unsafe = TRUE)
+    }
+    # convert config.[toml|yaml] to config.[yaml|toml] if necessary
+    if (length(cfg <- find_config(error = FALSE)) == 1 && file_ext(cfg) != format) {
+        (if (format == "yaml") toml2yaml else yaml2toml)(cfg, with_ext(cfg, format))
+        unlink(cfg)
+    }
+    if (netlify) {
+        msg_next("Adding netlify.toml in case you want to deploy the site to Netlify")
+        if (!file.exists("netlify.toml")) {
+            config_netlify("netlify.toml")
+        } else {
+            msg_todo(
+                "The file 'netlify.toml' exists, and I will not overwrite it. If you want ",
+                "to overwrite it, you may call blogdown::config_netlify() by yourself."
+            )
+        }
+    }
+    if (.Rprofile) {
+        msg_next("Adding .Rprofile to set options() for blogdown")
+        config_Rprofile()
+    }
+    dir_create("R")
+    add_build_script <- function(x, f) {
+        write_utf8(c(
+            sprintf("# An optional custom script to run %s Hugo builds your site.", x),
+            "# You can delete it if you do not need it."
+        ), f)
+    }
+    add_build_script("before", "R/build.R")
+    add_build_script("after", "R/build2.R")
+    msg_init("The new site is ready")
+    msg_okay(
+        "To start a local preview: use blogdown::serve_site()",
+        if (is_rstudio()) ', or the RStudio add-in "Serve Site"'
+    )
+    msg_okay("To stop a local preview: use blogdown::stop_server(), or restart your R session")
+    if (identical(serve, "ask")) serve <- yes_no("Want to serve and preview the site now?")
+    if (serve) serve_site()
+    if (length(list.files(".", "[.]Rproj$")) == 0) {
+        xfun::try_silent(rstudioapi::initializeProject())
+    }
+    invisible(getwd())
+}
+
+```
+
+## Metadata
+```{default, filename="skeleton.dcf"}
+Title: Website using blogdown
+Binding: blogdown_skeleton
+Subtitle: Create a new website using Hugo and blogdown
+Caption: Create a new website using Hugo and blogdown
+Icon: hugo-logo.png
+
+Parameter: theme
+Widget: TextInput
+Label: Hugo theme
+Default: yihui/hugo-lithium
+
+Parameter: format
+Widget: CheckboxInput
+Label: Convert the site config file to YAML
+Default: On
+
+Parameter: to_yaml
+Widget: CheckboxInput
+Label: Convert all post metadata to YAML
+Default: On
+
+Parameter: sample
+Widget: CheckboxInput
+Label: Add sample blog posts
+Default: On
+
+Parameter: theme_example
+Widget: CheckboxInput
+Label: Add the example site from the theme
+Default: On
+
+Parameter: empty_dirs
+Widget: CheckboxInput
+Label: Keep empty directories
+Default: Off
+Position: right
+
+Parameter: netlify
+Widget: CheckboxInput
+Label: Create netlify.toml
+Default: On
+Position: right
+
+Parameter: .Rprofile
+Widget: CheckboxInput
+Label: Create .Rprofile
+Default: On
+Position: right
+
+Parameter: install_hugo
+Widget: CheckboxInput
+Label: Install Hugo if not installed
+Default: On
+Position: right
+
+
+```
+
+:::
