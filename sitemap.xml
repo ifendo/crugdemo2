@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ifendo.github.io/crugdemo2/more_resources.html</loc>
+    <lastmod>2023-03-29T04:18:13.023Z</lastmod>
+  </url>
+  <url>
     <loc>https://ifendo.github.io/crugdemo2/index.html</loc>
-    <lastmod>2023-03-28T09:49:39.557Z</lastmod>
+    <lastmod>2023-03-29T04:18:13.989Z</lastmod>
   </url>
   <url>
     <loc>https://ifendo.github.io/crugdemo2/about.html</loc>
-    <lastmod>2023-03-28T09:49:39.903Z</lastmod>
+    <lastmod>2023-03-29T04:18:14.299Z</lastmod>
   </url>
 </urlset>

@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>crugdemo2 - Learn from experts</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">crugdemo2</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./more_resources.html" aria-current="page">
+ <span class="menu-text">More Resources</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#golem" id="toc-golem" class="nav-link active" data-scroll-target="#golem"><span class="toc-section-number">1</span>  golem</a></li>
+  <li><a href="#bookdown" id="toc-bookdown" class="nav-link" data-scroll-target="#bookdown"><span class="toc-section-number">2</span>  bookdown</a></li>
+  <li><a href="#blogdown" id="toc-blogdown" class="nav-link" data-scroll-target="#blogdown"><span class="toc-section-number">3</span>  blogdown</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Learn from experts</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="golem" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="golem"><span class="header-section-number">1</span> golem</h2>
+<p><a href="https://github.com/ThinkR-open/golem" class="uri">https://github.com/ThinkR-open/golem</a></p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">binding function</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">binding function - source <code>create_golem()</code></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Metadata</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>create_golem.R</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># to be used in RStudio "new project" GUI</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>create_golem_gui <span class="ot">&lt;-</span> <span class="cf">function</span>(path, ...) {</span>
+<span id="cb1-3"><a href="#cb1-3"></a>    dots <span class="ot">&lt;-</span> <span class="fu">list</span>(...)</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    attempt<span class="sc">::</span><span class="fu">stop_if_not</span>(</span>
+<span id="cb1-5"><a href="#cb1-5"></a>        dots<span class="sc">$</span>project_hook,</span>
+<span id="cb1-6"><a href="#cb1-6"></a>        <span class="sc">~</span> <span class="fu">grepl</span>(<span class="st">"::"</span>, .x),</span>
+<span id="cb1-7"><a href="#cb1-7"></a>        <span class="st">"{golem} project templates must be explicitely namespaced (pkg::fun)"</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>    )</span>
+<span id="cb1-9"><a href="#cb1-9"></a>    splt <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(dots<span class="sc">$</span>project_hook, <span class="st">"::"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10"></a>    project_hook <span class="ot">&lt;-</span> <span class="fu">getFromNamespace</span>(</span>
+<span id="cb1-11"><a href="#cb1-11"></a>        splt[[<span class="dv">1</span>]][<span class="dv">2</span>],</span>
+<span id="cb1-12"><a href="#cb1-12"></a>        splt[[<span class="dv">1</span>]][<span class="dv">1</span>]</span>
+<span id="cb1-13"><a href="#cb1-13"></a>    )</span>
+<span id="cb1-14"><a href="#cb1-14"></a>    <span class="fu">create_golem</span>(</span>
+<span id="cb1-15"><a href="#cb1-15"></a>        <span class="at">path =</span> path,</span>
+<span id="cb1-16"><a href="#cb1-16"></a>        <span class="at">open =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb1-17"><a href="#cb1-17"></a>        <span class="at">without_comments =</span> dots<span class="sc">$</span>without_comments,</span>
+<span id="cb1-18"><a href="#cb1-18"></a>        <span class="at">project_hook =</span> project_hook,</span>
+<span id="cb1-19"><a href="#cb1-19"></a>        <span class="at">check_name =</span> dots<span class="sc">$</span>check_name,</span>
+<span id="cb1-20"><a href="#cb1-20"></a>        <span class="at">with_git =</span> dots<span class="sc">$</span>with_git</span>
+<span id="cb1-21"><a href="#cb1-21"></a>    )</span>
+<span id="cb1-22"><a href="#cb1-22"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>create_golem.R</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>create_golem <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    path,</span>
+<span id="cb2-3"><a href="#cb2-3"></a>    <span class="at">check_name =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    <span class="at">open =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="at">overwrite =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2-6"><a href="#cb2-6"></a>    <span class="at">package_name =</span> <span class="fu">basename</span>(path),</span>
+<span id="cb2-7"><a href="#cb2-7"></a>    <span class="at">without_comments =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2-8"><a href="#cb2-8"></a>    <span class="at">project_hook =</span> golem<span class="sc">::</span>project_hook,</span>
+<span id="cb2-9"><a href="#cb2-9"></a>    <span class="at">with_git =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2-10"><a href="#cb2-10"></a>    ...) {</span>
+<span id="cb2-11"><a href="#cb2-11"></a>    path_to_golem <span class="ot">&lt;-</span> <span class="fu">normalizePath</span>(</span>
+<span id="cb2-12"><a href="#cb2-12"></a>        path,</span>
+<span id="cb2-13"><a href="#cb2-13"></a>        <span class="at">mustWork =</span> <span class="cn">FALSE</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a>    )</span>
+<span id="cb2-15"><a href="#cb2-15"></a></span>
+<span id="cb2-16"><a href="#cb2-16"></a>    <span class="cf">if</span> (check_name) {</span>
+<span id="cb2-17"><a href="#cb2-17"></a>        <span class="fu">cli_cat_rule</span>(<span class="st">"Checking package name"</span>)</span>
+<span id="cb2-18"><a href="#cb2-18"></a>        rlang<span class="sc">::</span><span class="fu">check_installed</span>(</span>
+<span id="cb2-19"><a href="#cb2-19"></a>            <span class="st">"usethis"</span>,</span>
+<span id="cb2-20"><a href="#cb2-20"></a>            <span class="at">version =</span> <span class="st">"1.6.0"</span>,</span>
+<span id="cb2-21"><a href="#cb2-21"></a>            <span class="at">reason =</span> <span class="st">"to check the package name."</span></span>
+<span id="cb2-22"><a href="#cb2-22"></a>        )</span>
+<span id="cb2-23"><a href="#cb2-23"></a>        <span class="fu">getFromNamespace</span>(</span>
+<span id="cb2-24"><a href="#cb2-24"></a>            <span class="st">"check_package_name"</span>,</span>
+<span id="cb2-25"><a href="#cb2-25"></a>            <span class="st">"usethis"</span></span>
+<span id="cb2-26"><a href="#cb2-26"></a>        )(package_name)</span>
+<span id="cb2-27"><a href="#cb2-27"></a>        <span class="fu">cat_green_tick</span>(<span class="st">"Valid package name"</span>)</span>
+<span id="cb2-28"><a href="#cb2-28"></a>    }</span>
+<span id="cb2-29"><a href="#cb2-29"></a></span>
+<span id="cb2-30"><a href="#cb2-30"></a>    <span class="cf">if</span> (<span class="fu">fs_dir_exists</span>(path_to_golem)) {</span>
+<span id="cb2-31"><a href="#cb2-31"></a>        <span class="cf">if</span> (<span class="sc">!</span><span class="fu">isTRUE</span>(overwrite)) {</span>
+<span id="cb2-32"><a href="#cb2-32"></a>            <span class="fu">stop</span>(</span>
+<span id="cb2-33"><a href="#cb2-33"></a>                <span class="fu">paste</span>(</span>
+<span id="cb2-34"><a href="#cb2-34"></a>                    <span class="st">"Project directory already exists. </span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb2-35"><a href="#cb2-35"></a>                    <span class="st">"Set `create_golem(overwrite = TRUE)` to overwrite anyway.</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb2-36"><a href="#cb2-36"></a>                    <span class="st">"Be careful this will restore a brand new golem. </span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb2-37"><a href="#cb2-37"></a>                    <span class="st">"You might be at risk of losing your work !"</span></span>
+<span id="cb2-38"><a href="#cb2-38"></a>                ),</span>
+<span id="cb2-39"><a href="#cb2-39"></a>                <span class="at">call. =</span> <span class="cn">FALSE</span></span>
+<span id="cb2-40"><a href="#cb2-40"></a>            )</span>
+<span id="cb2-41"><a href="#cb2-41"></a>        } <span class="cf">else</span> {</span>
+<span id="cb2-42"><a href="#cb2-42"></a>            <span class="fu">cat_red_bullet</span>(<span class="st">"Overwriting existing project."</span>)</span>
+<span id="cb2-43"><a href="#cb2-43"></a>        }</span>
+<span id="cb2-44"><a href="#cb2-44"></a>    } <span class="cf">else</span> {</span>
+<span id="cb2-45"><a href="#cb2-45"></a>        <span class="fu">cli_cat_rule</span>(<span class="st">"Creating dir"</span>)</span>
+<span id="cb2-46"><a href="#cb2-46"></a>        <span class="fu">usethis_create_project</span>(</span>
+<span id="cb2-47"><a href="#cb2-47"></a>            <span class="at">path =</span> path_to_golem,</span>
+<span id="cb2-48"><a href="#cb2-48"></a>            <span class="at">open =</span> <span class="cn">FALSE</span></span>
+<span id="cb2-49"><a href="#cb2-49"></a>        )</span>
+<span id="cb2-50"><a href="#cb2-50"></a>        <span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">".here"</span>)) {</span>
+<span id="cb2-51"><a href="#cb2-51"></a>            here<span class="sc">::</span><span class="fu">set_here</span>(path_to_golem)</span>
+<span id="cb2-52"><a href="#cb2-52"></a>        }</span>
+<span id="cb2-53"><a href="#cb2-53"></a>        <span class="fu">cat_green_tick</span>(<span class="st">"Created package directory"</span>)</span>
+<span id="cb2-54"><a href="#cb2-54"></a>    }</span>
+<span id="cb2-55"><a href="#cb2-55"></a></span>
+<span id="cb2-56"><a href="#cb2-56"></a>    <span class="fu">cli_cat_rule</span>(<span class="st">"Copying package skeleton"</span>)</span>
+<span id="cb2-57"><a href="#cb2-57"></a>    from <span class="ot">&lt;-</span> <span class="fu">golem_sys</span>(<span class="st">"shinyexample"</span>)</span>
+<span id="cb2-58"><a href="#cb2-58"></a></span>
+<span id="cb2-59"><a href="#cb2-59"></a>    <span class="co"># Copy over whole directory</span></span>
+<span id="cb2-60"><a href="#cb2-60"></a>    <span class="fu">fs_dir_copy</span>(</span>
+<span id="cb2-61"><a href="#cb2-61"></a>        <span class="at">path =</span> from,</span>
+<span id="cb2-62"><a href="#cb2-62"></a>        <span class="at">new_path =</span> path_to_golem,</span>
+<span id="cb2-63"><a href="#cb2-63"></a>        <span class="at">overwrite =</span> <span class="cn">TRUE</span></span>
+<span id="cb2-64"><a href="#cb2-64"></a>    )</span>
+<span id="cb2-65"><a href="#cb2-65"></a></span>
+<span id="cb2-66"><a href="#cb2-66"></a>    <span class="co"># Listing copied files ***from source directory***</span></span>
+<span id="cb2-67"><a href="#cb2-67"></a>    copied_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(</span>
+<span id="cb2-68"><a href="#cb2-68"></a>        <span class="at">path =</span> from,</span>
+<span id="cb2-69"><a href="#cb2-69"></a>        <span class="at">full.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2-70"><a href="#cb2-70"></a>        <span class="at">all.files =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-71"><a href="#cb2-71"></a>        <span class="at">recursive =</span> <span class="cn">TRUE</span></span>
+<span id="cb2-72"><a href="#cb2-72"></a>    )</span>
+<span id="cb2-73"><a href="#cb2-73"></a></span>
+<span id="cb2-74"><a href="#cb2-74"></a>    <span class="fu">replace_package_name</span>(</span>
+<span id="cb2-75"><a href="#cb2-75"></a>        copied_files,</span>
+<span id="cb2-76"><a href="#cb2-76"></a>        package_name,</span>
+<span id="cb2-77"><a href="#cb2-77"></a>        path_to_golem</span>
+<span id="cb2-78"><a href="#cb2-78"></a>    )</span>
+<span id="cb2-79"><a href="#cb2-79"></a></span>
+<span id="cb2-80"><a href="#cb2-80"></a>    <span class="fu">cat_green_tick</span>(<span class="st">"Copied app skeleton"</span>)</span>
+<span id="cb2-81"><a href="#cb2-81"></a></span>
+<span id="cb2-82"><a href="#cb2-82"></a>    old <span class="ot">&lt;-</span> <span class="fu">setwd</span>(path_to_golem)</span>
+<span id="cb2-83"><a href="#cb2-83"></a></span>
+<span id="cb2-84"><a href="#cb2-84"></a>    <span class="fu">cli_cat_rule</span>(<span class="st">"Running project hook function"</span>)</span>
+<span id="cb2-85"><a href="#cb2-85"></a></span>
+<span id="cb2-86"><a href="#cb2-86"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co"> fix</span></span>
+<span id="cb2-87"><a href="#cb2-87"></a>    <span class="co"># for some weird reason test() fails here when using golem::create_golem</span></span>
+<span id="cb2-88"><a href="#cb2-88"></a>    <span class="co"># and I don't have time to search why rn</span></span>
+<span id="cb2-89"><a href="#cb2-89"></a>    <span class="cf">if</span> (<span class="fu">substitute</span>(project_hook) <span class="sc">==</span> <span class="st">"golem::project_hook"</span>) {</span>
+<span id="cb2-90"><a href="#cb2-90"></a>        project_hook <span class="ot">&lt;-</span> <span class="fu">getFromNamespace</span>(<span class="st">"project_hook"</span>, <span class="st">"golem"</span>)</span>
+<span id="cb2-91"><a href="#cb2-91"></a>    }</span>
+<span id="cb2-92"><a href="#cb2-92"></a>    <span class="fu">project_hook</span>(</span>
+<span id="cb2-93"><a href="#cb2-93"></a>        <span class="at">path =</span> path_to_golem,</span>
+<span id="cb2-94"><a href="#cb2-94"></a>        <span class="at">package_name =</span> package_name,</span>
+<span id="cb2-95"><a href="#cb2-95"></a>        ...</span>
+<span id="cb2-96"><a href="#cb2-96"></a>    )</span>
+<span id="cb2-97"><a href="#cb2-97"></a></span>
+<span id="cb2-98"><a href="#cb2-98"></a>    <span class="fu">setwd</span>(old)</span>
+<span id="cb2-99"><a href="#cb2-99"></a></span>
+<span id="cb2-100"><a href="#cb2-100"></a>    <span class="fu">cat_green_tick</span>(<span class="st">"All set"</span>)</span>
+<span id="cb2-101"><a href="#cb2-101"></a></span>
+<span id="cb2-102"><a href="#cb2-102"></a>    <span class="cf">if</span> (<span class="fu">isTRUE</span>(without_comments)) {</span>
+<span id="cb2-103"><a href="#cb2-103"></a>        files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(</span>
+<span id="cb2-104"><a href="#cb2-104"></a>            <span class="at">path =</span> <span class="fu">c</span>(</span>
+<span id="cb2-105"><a href="#cb2-105"></a>                <span class="fu">file.path</span>(path_to_golem, <span class="st">"dev"</span>),</span>
+<span id="cb2-106"><a href="#cb2-106"></a>                <span class="fu">file.path</span>(path_to_golem, <span class="st">"R"</span>)</span>
+<span id="cb2-107"><a href="#cb2-107"></a>            ),</span>
+<span id="cb2-108"><a href="#cb2-108"></a>            <span class="at">full.names =</span> <span class="cn">TRUE</span></span>
+<span id="cb2-109"><a href="#cb2-109"></a>        )</span>
+<span id="cb2-110"><a href="#cb2-110"></a>        <span class="cf">for</span> (file <span class="cf">in</span> files) {</span>
+<span id="cb2-111"><a href="#cb2-111"></a>            <span class="fu">remove_comments</span>(file)</span>
+<span id="cb2-112"><a href="#cb2-112"></a>        }</span>
+<span id="cb2-113"><a href="#cb2-113"></a>    }</span>
+<span id="cb2-114"><a href="#cb2-114"></a></span>
+<span id="cb2-115"><a href="#cb2-115"></a>    <span class="cf">if</span> (<span class="fu">isTRUE</span>(with_git)) {</span>
+<span id="cb2-116"><a href="#cb2-116"></a>        <span class="fu">cli_cat_rule</span>(<span class="st">"Initializing git repository"</span>)</span>
+<span id="cb2-117"><a href="#cb2-117"></a>        git_output <span class="ot">&lt;-</span> <span class="fu">system</span>(</span>
+<span id="cb2-118"><a href="#cb2-118"></a>            <span class="at">command =</span> <span class="fu">paste</span>(<span class="st">"git init"</span>, path_to_golem),</span>
+<span id="cb2-119"><a href="#cb2-119"></a>            <span class="at">ignore.stdout =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-120"><a href="#cb2-120"></a>            <span class="at">ignore.stderr =</span> <span class="cn">TRUE</span></span>
+<span id="cb2-121"><a href="#cb2-121"></a>        )</span>
+<span id="cb2-122"><a href="#cb2-122"></a>        <span class="cf">if</span> (git_output) {</span>
+<span id="cb2-123"><a href="#cb2-123"></a>            <span class="fu">cat_red_bullet</span>(<span class="st">"Error initializing git epository"</span>)</span>
+<span id="cb2-124"><a href="#cb2-124"></a>        } <span class="cf">else</span> {</span>
+<span id="cb2-125"><a href="#cb2-125"></a>            <span class="fu">cat_green_tick</span>(<span class="st">"Initialized git repository"</span>)</span>
+<span id="cb2-126"><a href="#cb2-126"></a>        }</span>
+<span id="cb2-127"><a href="#cb2-127"></a>    }</span>
+<span id="cb2-128"><a href="#cb2-128"></a></span>
+<span id="cb2-129"><a href="#cb2-129"></a>    old <span class="ot">&lt;-</span> <span class="fu">setwd</span>(path_to_golem)</span>
+<span id="cb2-130"><a href="#cb2-130"></a></span>
+<span id="cb2-131"><a href="#cb2-131"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"desc"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb2-132"><a href="#cb2-132"></a>        <span class="fu">check_desc_installed</span>()</span>
+<span id="cb2-133"><a href="#cb2-133"></a>    } <span class="co"># incase of {desc} not installed by {usethis}</span></span>
+<span id="cb2-134"><a href="#cb2-134"></a></span>
+<span id="cb2-135"><a href="#cb2-135"></a>    <span class="fu">usethis_use_latest_dependencies</span>()</span>
+<span id="cb2-136"><a href="#cb2-136"></a></span>
+<span id="cb2-137"><a href="#cb2-137"></a>    <span class="co"># No .Rprofile for now</span></span>
+<span id="cb2-138"><a href="#cb2-138"></a>    <span class="co"># cli_cat_rule("Appending .Rprofile")</span></span>
+<span id="cb2-139"><a href="#cb2-139"></a>    <span class="co"># write("# Sourcing user .Rprofile if it exists ", ".Rprofile", append = TRUE)</span></span>
+<span id="cb2-140"><a href="#cb2-140"></a>    <span class="co"># write("home_profile &lt;- file.path(", ".Rprofile", append = TRUE)</span></span>
+<span id="cb2-141"><a href="#cb2-141"></a>    <span class="co"># write("  Sys.getenv(\"HOME\"), ", ".Rprofile", append = TRUE)</span></span>
+<span id="cb2-142"><a href="#cb2-142"></a>    <span class="co"># write("  \".Rprofile\"", ".Rprofile", append = TRUE)</span></span>
+<span id="cb2-143"><a href="#cb2-143"></a>    <span class="co"># write(")", ".Rprofile", append = TRUE)</span></span>
+<span id="cb2-144"><a href="#cb2-144"></a>    <span class="co"># write("if (file.exists(home_profile)){", ".Rprofile", append = TRUE)</span></span>
+<span id="cb2-145"><a href="#cb2-145"></a>    <span class="co"># write("  source(home_profile)", ".Rprofile", append = TRUE)</span></span>
+<span id="cb2-146"><a href="#cb2-146"></a>    <span class="co"># write("}", ".Rprofile", append = TRUE)</span></span>
+<span id="cb2-147"><a href="#cb2-147"></a>    <span class="co"># write("rm(home_profile)", ".Rprofile", append = TRUE)</span></span>
+<span id="cb2-148"><a href="#cb2-148"></a>    <span class="co">#</span></span>
+<span id="cb2-149"><a href="#cb2-149"></a>    <span class="co"># write("# Setting shiny.autoload.r to FALSE ", ".Rprofile", append = TRUE)</span></span>
+<span id="cb2-150"><a href="#cb2-150"></a>    <span class="co"># write("options(shiny.autoload.r = FALSE)", ".Rprofile", append = TRUE)</span></span>
+<span id="cb2-151"><a href="#cb2-151"></a>    <span class="co"># cat_green_tick("Appended")</span></span>
+<span id="cb2-152"><a href="#cb2-152"></a></span>
+<span id="cb2-153"><a href="#cb2-153"></a>    <span class="fu">setwd</span>(old)</span>
+<span id="cb2-154"><a href="#cb2-154"></a></span>
+<span id="cb2-155"><a href="#cb2-155"></a>    <span class="fu">cli_cat_rule</span>(<span class="st">"Done"</span>)</span>
+<span id="cb2-156"><a href="#cb2-156"></a></span>
+<span id="cb2-157"><a href="#cb2-157"></a>    <span class="fu">cli_cat_line</span>(</span>
+<span id="cb2-158"><a href="#cb2-158"></a>        <span class="fu">paste0</span>(</span>
+<span id="cb2-159"><a href="#cb2-159"></a>            <span class="st">"A new golem named "</span>,</span>
+<span id="cb2-160"><a href="#cb2-160"></a>            package_name,</span>
+<span id="cb2-161"><a href="#cb2-161"></a>            <span class="st">" was created at "</span>,</span>
+<span id="cb2-162"><a href="#cb2-162"></a>            path_to_golem,</span>
+<span id="cb2-163"><a href="#cb2-163"></a>            <span class="st">" .</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb2-164"><a href="#cb2-164"></a>            <span class="st">"To continue working on your app, start editing the 01_start.R file."</span></span>
+<span id="cb2-165"><a href="#cb2-165"></a>        )</span>
+<span id="cb2-166"><a href="#cb2-166"></a>    )</span>
+<span id="cb2-167"><a href="#cb2-167"></a></span>
+<span id="cb2-168"><a href="#cb2-168"></a>    <span class="fu">check_dev_deps_are_installed</span>()</span>
+<span id="cb2-169"><a href="#cb2-169"></a></span>
+<span id="cb2-170"><a href="#cb2-170"></a>    <span class="cf">if</span> (<span class="fu">isTRUE</span>(open)) {</span>
+<span id="cb2-171"><a href="#cb2-171"></a>        <span class="cf">if</span> (</span>
+<span id="cb2-172"><a href="#cb2-172"></a>            rlang<span class="sc">::</span><span class="fu">is_installed</span>(<span class="st">"rstudioapi"</span>) <span class="sc">&amp;&amp;</span></span>
+<span id="cb2-173"><a href="#cb2-173"></a>                rstudioapi<span class="sc">::</span><span class="fu">isAvailable</span>() <span class="sc">&amp;&amp;</span></span>
+<span id="cb2-174"><a href="#cb2-174"></a>                rstudioapi<span class="sc">::</span><span class="fu">hasFun</span>(<span class="st">"openProject"</span>)</span>
+<span id="cb2-175"><a href="#cb2-175"></a>        ) {</span>
+<span id="cb2-176"><a href="#cb2-176"></a>            rstudioapi<span class="sc">::</span><span class="fu">openProject</span>(<span class="at">path =</span> path)</span>
+<span id="cb2-177"><a href="#cb2-177"></a>        } <span class="cf">else</span> {</span>
+<span id="cb2-178"><a href="#cb2-178"></a>            <span class="fu">setwd</span>(path)</span>
+<span id="cb2-179"><a href="#cb2-179"></a>        }</span>
+<span id="cb2-180"><a href="#cb2-180"></a>    }</span>
+<span id="cb2-181"><a href="#cb2-181"></a></span>
+<span id="cb2-182"><a href="#cb2-182"></a>    <span class="fu">return</span>(</span>
+<span id="cb2-183"><a href="#cb2-183"></a>        <span class="fu">invisible</span>(</span>
+<span id="cb2-184"><a href="#cb2-184"></a>            path_to_golem</span>
+<span id="cb2-185"><a href="#cb2-185"></a>        )</span>
+<span id="cb2-186"><a href="#cb2-186"></a>    )</span>
+<span id="cb2-187"><a href="#cb2-187"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>create_golem.dcf</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2"></a>Binding: create_golem_gui</span>
+<span id="cb3-3"><a href="#cb3-3"></a>Title: Package for Shiny App using golem</span>
+<span id="cb3-4"><a href="#cb3-4"></a>OpenFiles: dev/01_start.R</span>
+<span id="cb3-5"><a href="#cb3-5"></a>Icon: golem.png</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a>Parameter: without_comments</span>
+<span id="cb3-8"><a href="#cb3-8"></a>Widget: CheckboxInput</span>
+<span id="cb3-9"><a href="#cb3-9"></a>Label: Start my project without golem comments</span>
+<span id="cb3-10"><a href="#cb3-10"></a>Default: Off</span>
+<span id="cb3-11"><a href="#cb3-11"></a>Position: left</span>
+<span id="cb3-12"><a href="#cb3-12"></a></span>
+<span id="cb3-13"><a href="#cb3-13"></a>Parameter: project_hook</span>
+<span id="cb3-14"><a href="#cb3-14"></a>Widget: TextInput</span>
+<span id="cb3-15"><a href="#cb3-15"></a>Label: Hook function to run during project creation</span>
+<span id="cb3-16"><a href="#cb3-16"></a>Default: golem::project_hook</span>
+<span id="cb3-17"><a href="#cb3-17"></a>Position: left</span>
+<span id="cb3-18"><a href="#cb3-18"></a></span>
+<span id="cb3-19"><a href="#cb3-19"></a>Parameter: check_name</span>
+<span id="cb3-20"><a href="#cb3-20"></a>Widget: CheckboxInput</span>
+<span id="cb3-21"><a href="#cb3-21"></a>Label: Perform a Check on the name</span>
+<span id="cb3-22"><a href="#cb3-22"></a>Default: On</span>
+<span id="cb3-23"><a href="#cb3-23"></a>Position: left</span>
+<span id="cb3-24"><a href="#cb3-24"></a></span>
+<span id="cb3-25"><a href="#cb3-25"></a>Parameter: with_git</span>
+<span id="cb3-26"><a href="#cb3-26"></a>Widget: CheckboxInput</span>
+<span id="cb3-27"><a href="#cb3-27"></a>Label: Create a git repository</span>
+<span id="cb3-28"><a href="#cb3-28"></a>Default: Off</span>
+<span id="cb3-29"><a href="#cb3-29"></a>Position: left</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="bookdown" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="bookdown"><span class="header-section-number">2</span> bookdown</h2>
+<p><a href="https://github.com/rstudio/bookdown" class="uri">https://github.com/rstudio/bookdown</a></p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">binding function</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Metadata</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>skeleton.R</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># this is the function used for the RStudio project template</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a>bookdown_skeleton <span class="ot">&lt;-</span> <span class="cf">function</span>(path, <span class="at">output_format =</span> <span class="fu">skeleton_formats</span>()) {</span>
+<span id="cb4-4"><a href="#cb4-4"></a>    output_format <span class="ot">&lt;-</span> <span class="fu">match.arg</span>(output_format)</span>
+<span id="cb4-5"><a href="#cb4-5"></a>    <span class="co"># ensure directory exists</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>    <span class="fu">dir.create</span>(path, <span class="at">recursive =</span> <span class="cn">TRUE</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-7"><a href="#cb4-7"></a>    path <span class="ot">&lt;-</span> xfun<span class="sc">::</span><span class="fu">normalize_path</span>(path)</span>
+<span id="cb4-8"><a href="#cb4-8"></a></span>
+<span id="cb4-9"><a href="#cb4-9"></a>    <span class="co"># Get common resources</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>    files <span class="ot">&lt;-</span> <span class="fu">skeleton_get_files</span>(<span class="st">"common"</span>)</span>
+<span id="cb4-11"><a href="#cb4-11"></a>    files_format <span class="ot">&lt;-</span> <span class="fu">skeleton_get_files</span>(output_format)</span>
+<span id="cb4-12"><a href="#cb4-12"></a>    <span class="co"># copy them to path</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a>    source <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="fu">skeleton_get_dir</span>(), <span class="fu">c</span>(files, files_format))</span>
+<span id="cb4-14"><a href="#cb4-14"></a>    <span class="co"># common resource are copied without folder</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a>    target <span class="ot">&lt;-</span> <span class="fu">file.path</span>(path, <span class="fu">c</span>(xfun<span class="sc">::</span><span class="fu">relative_path</span>(files, <span class="st">"common"</span>), files_format))</span>
+<span id="cb4-16"><a href="#cb4-16"></a></span>
+<span id="cb4-17"><a href="#cb4-17"></a>    <span class="fu">lapply</span>(<span class="fu">unique</span>(<span class="fu">dirname</span>(target)), dir_create)</span>
+<span id="cb4-18"><a href="#cb4-18"></a>    <span class="fu">file.copy</span>(source, target)</span>
+<span id="cb4-19"><a href="#cb4-19"></a></span>
+<span id="cb4-20"><a href="#cb4-20"></a>    <span class="co"># Tweak template file</span></span>
+<span id="cb4-21"><a href="#cb4-21"></a>    <span class="fu">skeleton_build_index</span>(path, output_format)</span>
+<span id="cb4-22"><a href="#cb4-22"></a>    <span class="fu">skeleton_build_output_yml</span>(path, output_format)</span>
+<span id="cb4-23"><a href="#cb4-23"></a>    <span class="fu">skeleton_build_bookdown_yml</span>(path, output_format)</span>
+<span id="cb4-24"><a href="#cb4-24"></a>    <span class="fu">move_dir</span>(<span class="fu">file.path</span>(path, output_format), path) <span class="co"># move left format files</span></span>
+<span id="cb4-25"><a href="#cb4-25"></a>    <span class="fu">skeleton_remove_blocks</span>(path, output_format)</span>
+<span id="cb4-26"><a href="#cb4-26"></a></span>
+<span id="cb4-27"><a href="#cb4-27"></a>    <span class="co"># Get missing assets</span></span>
+<span id="cb4-28"><a href="#cb4-28"></a>    <span class="cf">if</span> (output_format <span class="sc">==</span> <span class="st">"bs4_book"</span>) {</span>
+<span id="cb4-29"><a href="#cb4-29"></a>        <span class="fu">skeleton_get_csl</span>(path, <span class="st">"chicago-fullnote-bibliography"</span>)</span>
+<span id="cb4-30"><a href="#cb4-30"></a>    }</span>
+<span id="cb4-31"><a href="#cb4-31"></a></span>
+<span id="cb4-32"><a href="#cb4-32"></a>    <span class="fu">invisible</span>(<span class="cn">TRUE</span>)</span>
+<span id="cb4-33"><a href="#cb4-33"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>skeleton.dcf</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1"></a>Title: Book project using bookdown</span>
+<span id="cb5-2"><a href="#cb5-2"></a>OpenFiles: README.md, index.Rmd, _bookdown.yml, _output.yml</span>
+<span id="cb5-3"><a href="#cb5-3"></a>Icon: book.png</span>
+<span id="cb5-4"><a href="#cb5-4"></a>Binding: bookdown_skeleton</span>
+<span id="cb5-5"><a href="#cb5-5"></a>Parameter: output_format</span>
+<span id="cb5-6"><a href="#cb5-6"></a>Widget: SelectInput</span>
+<span id="cb5-7"><a href="#cb5-7"></a>Label: Select HTML book format</span>
+<span id="cb5-8"><a href="#cb5-8"></a>Fields: gitbook, bs4_book</span>
+<span id="cb5-9"><a href="#cb5-9"></a>Default: gitbook</span>
+<span id="cb5-10"><a href="#cb5-10"></a>Position: left</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="blogdown" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="blogdown"><span class="header-section-number">3</span> blogdown</h2>
+<p><a href="https://github.com/rstudio/blogdown" class="uri">https://github.com/rstudio/blogdown</a></p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">binding function</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">binding function - source <code>new_site()</code></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Metadata</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>package.R</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>blogdown_skeleton <span class="ot">&lt;-</span> <span class="cf">function</span>(path, ...) {</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    opts <span class="ot">&lt;-</span> <span class="fu">options</span>(<span class="at">blogdown.open_sample =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a>    <span class="fu">on.exit</span>(<span class="fu">options</span>(opts), <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-4"><a href="#cb6-4"></a>    <span class="fu">new_site</span>(<span class="at">dir =</span> path, ..., <span class="at">serve =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-5"><a href="#cb6-5"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>hugo.R</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>new_site <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    <span class="at">dir =</span> <span class="st">"."</span>, <span class="at">force =</span> <span class="cn">NA</span>, <span class="at">install_hugo =</span> <span class="cn">TRUE</span>, <span class="at">format =</span> <span class="st">"yaml"</span>, <span class="at">sample =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-3"><a href="#cb7-3"></a>    <span class="at">theme =</span> <span class="st">"yihui/hugo-lithium"</span>, <span class="at">hostname =</span> <span class="st">"github.com"</span>, <span class="at">theme_example =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-4"><a href="#cb7-4"></a>    <span class="at">empty_dirs =</span> <span class="cn">FALSE</span>, <span class="at">to_yaml =</span> <span class="cn">TRUE</span>, <span class="at">netlify =</span> <span class="cn">TRUE</span>, <span class="at">.Rprofile =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-5"><a href="#cb7-5"></a>    <span class="at">serve =</span> <span class="cf">if</span> (<span class="fu">interactive</span>()) <span class="st">"ask"</span> <span class="cf">else</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb7-6"><a href="#cb7-6"></a>    <span class="fu">msg_init</span>(<span class="st">"Creating your new site"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7"></a>    opts<span class="sc">$</span><span class="fu">set</span>(<span class="at">site_root =</span> <span class="cn">NULL</span>) <span class="co"># invalidate the previously stored site root</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a>    <span class="cf">if</span> (<span class="fu">is.na</span>(force)) {</span>
+<span id="cb7-9"><a href="#cb7-9"></a>        files <span class="ot">&lt;-</span> <span class="fu">grep</span>(</span>
+<span id="cb7-10"><a href="#cb7-10"></a>            <span class="st">"([.]Rproj|/(LICENSE|README)([.][a-z]+)?)$"</span>, <span class="fu">list_files</span>(dir),</span>
+<span id="cb7-11"><a href="#cb7-11"></a>            <span class="at">invert =</span> <span class="cn">TRUE</span>, <span class="at">value =</span> <span class="cn">TRUE</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a>        )</span>
+<span id="cb7-13"><a href="#cb7-13"></a>        force <span class="ot">&lt;-</span> <span class="fu">length</span>(files) <span class="sc">==</span> <span class="dv">0</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a>        <span class="cf">if</span> (<span class="sc">!</span>force) {</span>
+<span id="cb7-15"><a href="#cb7-15"></a>            force <span class="ot">&lt;-</span> <span class="fu">yes_no</span>(<span class="fu">sprintf</span>(<span class="st">"The directory '%s' is not empty. Create the site anyway?"</span>, dir))</span>
+<span id="cb7-16"><a href="#cb7-16"></a>            <span class="cf">if</span> (<span class="sc">!</span>force) {</span>
+<span id="cb7-17"><a href="#cb7-17"></a>                <span class="fu">stop</span>(</span>
+<span id="cb7-18"><a href="#cb7-18"></a>                    <span class="st">"The dir is not empty and Hugo might override existing files. If you are "</span>,</span>
+<span id="cb7-19"><a href="#cb7-19"></a>                    <span class="st">"sure the site can be created in this dir, use new_site(force = TRUE)."</span></span>
+<span id="cb7-20"><a href="#cb7-20"></a>                )</span>
+<span id="cb7-21"><a href="#cb7-21"></a>            }</span>
+<span id="cb7-22"><a href="#cb7-22"></a>        }</span>
+<span id="cb7-23"><a href="#cb7-23"></a>    }</span>
+<span id="cb7-24"><a href="#cb7-24"></a>    <span class="cf">if</span> (install_hugo <span class="sc">&amp;&amp;</span> <span class="sc">!</span><span class="fu">hugo_available</span>()) {</span>
+<span id="cb7-25"><a href="#cb7-25"></a>        <span class="fu">msg_next</span>(<span class="st">"Installing Hugo"</span>)</span>
+<span id="cb7-26"><a href="#cb7-26"></a>        <span class="fu">install_hugo</span>()</span>
+<span id="cb7-27"><a href="#cb7-27"></a>    }</span>
+<span id="cb7-28"><a href="#cb7-28"></a>    <span class="cf">if</span> (<span class="fu">is.logical</span>(format)) format <span class="ot">&lt;-</span> <span class="cf">if</span> (format) <span class="st">"yaml"</span> <span class="cf">else</span> <span class="st">"toml"</span></span>
+<span id="cb7-29"><a href="#cb7-29"></a>    <span class="cf">if</span> (<span class="fu">hugo_cmd</span>(</span>
+<span id="cb7-30"><a href="#cb7-30"></a>        <span class="fu">c</span>(<span class="st">"new"</span>, <span class="st">"site"</span>, <span class="fu">shQuote</span>(<span class="fu">path.expand</span>(dir)), <span class="cf">if</span> (force) <span class="st">"--force"</span>, <span class="st">"-f"</span>, format),</span>
+<span id="cb7-31"><a href="#cb7-31"></a>        <span class="at">stdout =</span> <span class="cn">FALSE</span></span>
+<span id="cb7-32"><a href="#cb7-32"></a>    ) <span class="sc">!=</span> <span class="dv">0</span>) {</span>
+<span id="cb7-33"><a href="#cb7-33"></a>        <span class="fu">return</span>(<span class="fu">invisible</span>())</span>
+<span id="cb7-34"><a href="#cb7-34"></a>    }</span>
+<span id="cb7-35"><a href="#cb7-35"></a></span>
+<span id="cb7-36"><a href="#cb7-36"></a>    owd <span class="ot">&lt;-</span> <span class="fu">setwd</span>(dir)</span>
+<span id="cb7-37"><a href="#cb7-37"></a>    opt <span class="ot">&lt;-</span> opts<span class="sc">$</span><span class="fu">get</span>()</span>
+<span id="cb7-38"><a href="#cb7-38"></a>    opts<span class="sc">$</span><span class="fu">restore</span>()</span>
+<span id="cb7-39"><a href="#cb7-39"></a>    <span class="fu">on.exit</span>(</span>
+<span id="cb7-40"><a href="#cb7-40"></a>        {</span>
+<span id="cb7-41"><a href="#cb7-41"></a>            opts<span class="sc">$</span><span class="fu">restore</span>(opt)</span>
+<span id="cb7-42"><a href="#cb7-42"></a>            <span class="fu">setwd</span>(owd)</span>
+<span id="cb7-43"><a href="#cb7-43"></a>        },</span>
+<span id="cb7-44"><a href="#cb7-44"></a>        <span class="at">add =</span> <span class="cn">TRUE</span></span>
+<span id="cb7-45"><a href="#cb7-45"></a>    )</span>
+<span id="cb7-46"><a href="#cb7-46"></a></span>
+<span id="cb7-47"><a href="#cb7-47"></a>    <span class="co"># remove Hugo's default archetype (I think draft: true is a confusing default)</span></span>
+<span id="cb7-48"><a href="#cb7-48"></a>    <span class="fu">unlink</span>(<span class="fu">file.path</span>(<span class="st">"archetypes"</span>, <span class="st">"default.md"</span>))</span>
+<span id="cb7-49"><a href="#cb7-49"></a>    <span class="co"># remove empty dirs</span></span>
+<span id="cb7-50"><a href="#cb7-50"></a>    <span class="cf">if</span> (<span class="sc">!</span>empty_dirs) <span class="cf">for</span> (d <span class="cf">in</span> <span class="fu">list.dirs</span>(<span class="at">recursive =</span> <span class="cn">FALSE</span>)) <span class="fu">del_empty_dir</span>(d)</span>
+<span id="cb7-51"><a href="#cb7-51"></a>    <span class="cf">if</span> (<span class="fu">is.character</span>(theme) <span class="sc">&amp;&amp;</span> <span class="fu">length</span>(theme) <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(theme)) {</span>
+<span id="cb7-52"><a href="#cb7-52"></a>        <span class="fu">msg_next</span>(<span class="st">"Installing the theme "</span>, theme, <span class="st">" from "</span>, hostname)</span>
+<span id="cb7-53"><a href="#cb7-53"></a>        <span class="fu">install_theme</span>(theme, theme_example, <span class="at">hostname =</span> hostname)</span>
+<span id="cb7-54"><a href="#cb7-54"></a>    }</span>
+<span id="cb7-55"><a href="#cb7-55"></a>    <span class="co"># remove the .gitignore that ignores everything under static/:</span></span>
+<span id="cb7-56"><a href="#cb7-56"></a>    <span class="co"># https://github.com/rstudio/blogdown/issues/320</span></span>
+<span id="cb7-57"><a href="#cb7-57"></a>    <span class="cf">if</span> (<span class="fu">file.exists</span>(gitignore <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">"static"</span>, <span class="st">".gitignore"</span>))) {</span>
+<span id="cb7-58"><a href="#cb7-58"></a>        <span class="cf">if</span> (<span class="fu">any</span>(xfun<span class="sc">::</span><span class="fu">read_utf8</span>(gitignore) <span class="sc">==</span> <span class="st">"*"</span>)) <span class="fu">unlink</span>(gitignore)</span>
+<span id="cb7-59"><a href="#cb7-59"></a>    }</span>
+<span id="cb7-60"><a href="#cb7-60"></a></span>
+<span id="cb7-61"><a href="#cb7-61"></a>    <span class="cf">if</span> (sample) {</span>
+<span id="cb7-62"><a href="#cb7-62"></a>        lang <span class="ot">&lt;-</span> <span class="fu">get_lang</span>()</span>
+<span id="cb7-63"><a href="#cb7-63"></a>        d <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">"content"</span>, <span class="fu">c</span>(<span class="st">"blog"</span>, <span class="st">"posts"</span>, <span class="st">"post"</span>))</span>
+<span id="cb7-64"><a href="#cb7-64"></a>        d <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">file.path</span>(<span class="st">"content"</span>, lang, <span class="fu">basename</span>(d)), d)</span>
+<span id="cb7-65"><a href="#cb7-65"></a>        <span class="cf">for</span> (i <span class="cf">in</span> d) <span class="cf">if</span> (<span class="fu">dir_exists</span>(i)) <span class="cf">break</span></span>
+<span id="cb7-66"><a href="#cb7-66"></a>        d <span class="ot">&lt;-</span> i</span>
+<span id="cb7-67"><a href="#cb7-67"></a>        f1 <span class="ot">&lt;-</span> <span class="fu">pkg_file</span>(<span class="st">"resources"</span>, <span class="st">"2020-12-01-r-rmarkdown.Rmd"</span>)</span>
+<span id="cb7-68"><a href="#cb7-68"></a>        <span class="cf">if</span> (<span class="fu">use_bundle</span>()) d <span class="ot">&lt;-</span> <span class="fu">file.path</span>(d, <span class="fu">basename</span>(xfun<span class="sc">::</span><span class="fu">sans_ext</span>(f1)))</span>
+<span id="cb7-69"><a href="#cb7-69"></a>        f2 <span class="ot">&lt;-</span> <span class="fu">file.path</span>(d, <span class="cf">if</span> (<span class="fu">use_bundle</span>()) <span class="st">"index.Rmd"</span> <span class="cf">else</span> <span class="fu">basename</span>(f1))</span>
+<span id="cb7-70"><a href="#cb7-70"></a>        <span class="co"># for a multilingual site, create the sample post via new_content() because</span></span>
+<span id="cb7-71"><a href="#cb7-71"></a>        <span class="co"># the post may need to be under a language dir (#537)</span></span>
+<span id="cb7-72"><a href="#cb7-72"></a>        <span class="cf">if</span> (<span class="fu">length</span>(lang)) {</span>
+<span id="cb7-73"><a href="#cb7-73"></a>            f2 <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="fu">sprintf</span>(<span class="st">"^content/(%s/)?"</span>, lang), <span class="st">""</span>, f2)</span>
+<span id="cb7-74"><a href="#cb7-74"></a>            f2 <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">"^(.+[.])"</span>, <span class="fu">sprintf</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">1%s."</span>, lang), f2)</span>
+<span id="cb7-75"><a href="#cb7-75"></a>            f2 <span class="ot">&lt;-</span> <span class="fu">new_content</span>(f2, <span class="at">open =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-76"><a href="#cb7-76"></a>            <span class="fu">file.remove</span>(f2)</span>
+<span id="cb7-77"><a href="#cb7-77"></a>        } <span class="cf">else</span> {</span>
+<span id="cb7-78"><a href="#cb7-78"></a>            <span class="fu">dir_create</span>(d)</span>
+<span id="cb7-79"><a href="#cb7-79"></a>        }</span>
+<span id="cb7-80"><a href="#cb7-80"></a>        <span class="fu">msg_next</span>(<span class="st">"Adding the sample post to "</span>, f2)</span>
+<span id="cb7-81"><a href="#cb7-81"></a>        <span class="fu">file.copy</span>(f1, f2)</span>
+<span id="cb7-82"><a href="#cb7-82"></a>        <span class="cf">if</span> (<span class="fu">getOption</span>(<span class="st">"blogdown.open_sample"</span>, <span class="cn">TRUE</span>)) <span class="fu">open_file</span>(f2)</span>
+<span id="cb7-83"><a href="#cb7-83"></a>    }</span>
+<span id="cb7-84"><a href="#cb7-84"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">file_exists</span>(<span class="st">"index.Rmd"</span>)) <span class="fu">create_index</span>()</span>
+<span id="cb7-85"><a href="#cb7-85"></a></span>
+<span id="cb7-86"><a href="#cb7-86"></a>    <span class="cf">if</span> (to_yaml) {</span>
+<span id="cb7-87"><a href="#cb7-87"></a>        <span class="fu">msg_next</span>(<span class="st">"Converting all metadata to the YAML format"</span>)</span>
+<span id="cb7-88"><a href="#cb7-88"></a>        <span class="fu">hugo_convert</span>(<span class="st">"YAML"</span>, <span class="at">unsafe =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-89"><a href="#cb7-89"></a>    }</span>
+<span id="cb7-90"><a href="#cb7-90"></a>    <span class="co"># convert config.[toml|yaml] to config.[yaml|toml] if necessary</span></span>
+<span id="cb7-91"><a href="#cb7-91"></a>    <span class="cf">if</span> (<span class="fu">length</span>(cfg <span class="ot">&lt;-</span> <span class="fu">find_config</span>(<span class="at">error =</span> <span class="cn">FALSE</span>)) <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;&amp;</span> <span class="fu">file_ext</span>(cfg) <span class="sc">!=</span> format) {</span>
+<span id="cb7-92"><a href="#cb7-92"></a>        (<span class="cf">if</span> (format <span class="sc">==</span> <span class="st">"yaml"</span>) toml2yaml <span class="cf">else</span> yaml2toml)(cfg, <span class="fu">with_ext</span>(cfg, format))</span>
+<span id="cb7-93"><a href="#cb7-93"></a>        <span class="fu">unlink</span>(cfg)</span>
+<span id="cb7-94"><a href="#cb7-94"></a>    }</span>
+<span id="cb7-95"><a href="#cb7-95"></a>    <span class="cf">if</span> (netlify) {</span>
+<span id="cb7-96"><a href="#cb7-96"></a>        <span class="fu">msg_next</span>(<span class="st">"Adding netlify.toml in case you want to deploy the site to Netlify"</span>)</span>
+<span id="cb7-97"><a href="#cb7-97"></a>        <span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">"netlify.toml"</span>)) {</span>
+<span id="cb7-98"><a href="#cb7-98"></a>            <span class="fu">config_netlify</span>(<span class="st">"netlify.toml"</span>)</span>
+<span id="cb7-99"><a href="#cb7-99"></a>        } <span class="cf">else</span> {</span>
+<span id="cb7-100"><a href="#cb7-100"></a>            <span class="fu">msg_todo</span>(</span>
+<span id="cb7-101"><a href="#cb7-101"></a>                <span class="st">"The file 'netlify.toml' exists, and I will not overwrite it. If you want "</span>,</span>
+<span id="cb7-102"><a href="#cb7-102"></a>                <span class="st">"to overwrite it, you may call blogdown::config_netlify() by yourself."</span></span>
+<span id="cb7-103"><a href="#cb7-103"></a>            )</span>
+<span id="cb7-104"><a href="#cb7-104"></a>        }</span>
+<span id="cb7-105"><a href="#cb7-105"></a>    }</span>
+<span id="cb7-106"><a href="#cb7-106"></a>    <span class="cf">if</span> (.Rprofile) {</span>
+<span id="cb7-107"><a href="#cb7-107"></a>        <span class="fu">msg_next</span>(<span class="st">"Adding .Rprofile to set options() for blogdown"</span>)</span>
+<span id="cb7-108"><a href="#cb7-108"></a>        <span class="fu">config_Rprofile</span>()</span>
+<span id="cb7-109"><a href="#cb7-109"></a>    }</span>
+<span id="cb7-110"><a href="#cb7-110"></a>    <span class="fu">dir_create</span>(<span class="st">"R"</span>)</span>
+<span id="cb7-111"><a href="#cb7-111"></a>    add_build_script <span class="ot">&lt;-</span> <span class="cf">function</span>(x, f) {</span>
+<span id="cb7-112"><a href="#cb7-112"></a>        <span class="fu">write_utf8</span>(<span class="fu">c</span>(</span>
+<span id="cb7-113"><a href="#cb7-113"></a>            <span class="fu">sprintf</span>(<span class="st">"# An optional custom script to run %s Hugo builds your site."</span>, x),</span>
+<span id="cb7-114"><a href="#cb7-114"></a>            <span class="st">"# You can delete it if you do not need it."</span></span>
+<span id="cb7-115"><a href="#cb7-115"></a>        ), f)</span>
+<span id="cb7-116"><a href="#cb7-116"></a>    }</span>
+<span id="cb7-117"><a href="#cb7-117"></a>    <span class="fu">add_build_script</span>(<span class="st">"before"</span>, <span class="st">"R/build.R"</span>)</span>
+<span id="cb7-118"><a href="#cb7-118"></a>    <span class="fu">add_build_script</span>(<span class="st">"after"</span>, <span class="st">"R/build2.R"</span>)</span>
+<span id="cb7-119"><a href="#cb7-119"></a>    <span class="fu">msg_init</span>(<span class="st">"The new site is ready"</span>)</span>
+<span id="cb7-120"><a href="#cb7-120"></a>    <span class="fu">msg_okay</span>(</span>
+<span id="cb7-121"><a href="#cb7-121"></a>        <span class="st">"To start a local preview: use blogdown::serve_site()"</span>,</span>
+<span id="cb7-122"><a href="#cb7-122"></a>        <span class="cf">if</span> (<span class="fu">is_rstudio</span>()) <span class="st">', or the RStudio add-in "Serve Site"'</span></span>
+<span id="cb7-123"><a href="#cb7-123"></a>    )</span>
+<span id="cb7-124"><a href="#cb7-124"></a>    <span class="fu">msg_okay</span>(<span class="st">"To stop a local preview: use blogdown::stop_server(), or restart your R session"</span>)</span>
+<span id="cb7-125"><a href="#cb7-125"></a>    <span class="cf">if</span> (<span class="fu">identical</span>(serve, <span class="st">"ask"</span>)) serve <span class="ot">&lt;-</span> <span class="fu">yes_no</span>(<span class="st">"Want to serve and preview the site now?"</span>)</span>
+<span id="cb7-126"><a href="#cb7-126"></a>    <span class="cf">if</span> (serve) <span class="fu">serve_site</span>()</span>
+<span id="cb7-127"><a href="#cb7-127"></a>    <span class="cf">if</span> (<span class="fu">length</span>(<span class="fu">list.files</span>(<span class="st">"."</span>, <span class="st">"[.]Rproj$"</span>)) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb7-128"><a href="#cb7-128"></a>        xfun<span class="sc">::</span><span class="fu">try_silent</span>(rstudioapi<span class="sc">::</span><span class="fu">initializeProject</span>())</span>
+<span id="cb7-129"><a href="#cb7-129"></a>    }</span>
+<span id="cb7-130"><a href="#cb7-130"></a>    <span class="fu">invisible</span>(<span class="fu">getwd</span>())</span>
+<span id="cb7-131"><a href="#cb7-131"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>skeleton.dcf</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1"></a>Title: Website using blogdown</span>
+<span id="cb8-2"><a href="#cb8-2"></a>Binding: blogdown_skeleton</span>
+<span id="cb8-3"><a href="#cb8-3"></a>Subtitle: Create a new website using Hugo and blogdown</span>
+<span id="cb8-4"><a href="#cb8-4"></a>Caption: Create a new website using Hugo and blogdown</span>
+<span id="cb8-5"><a href="#cb8-5"></a>Icon: hugo-logo.png</span>
+<span id="cb8-6"><a href="#cb8-6"></a></span>
+<span id="cb8-7"><a href="#cb8-7"></a>Parameter: theme</span>
+<span id="cb8-8"><a href="#cb8-8"></a>Widget: TextInput</span>
+<span id="cb8-9"><a href="#cb8-9"></a>Label: Hugo theme</span>
+<span id="cb8-10"><a href="#cb8-10"></a>Default: yihui/hugo-lithium</span>
+<span id="cb8-11"><a href="#cb8-11"></a></span>
+<span id="cb8-12"><a href="#cb8-12"></a>Parameter: format</span>
+<span id="cb8-13"><a href="#cb8-13"></a>Widget: CheckboxInput</span>
+<span id="cb8-14"><a href="#cb8-14"></a>Label: Convert the site config file to YAML</span>
+<span id="cb8-15"><a href="#cb8-15"></a>Default: On</span>
+<span id="cb8-16"><a href="#cb8-16"></a></span>
+<span id="cb8-17"><a href="#cb8-17"></a>Parameter: to_yaml</span>
+<span id="cb8-18"><a href="#cb8-18"></a>Widget: CheckboxInput</span>
+<span id="cb8-19"><a href="#cb8-19"></a>Label: Convert all post metadata to YAML</span>
+<span id="cb8-20"><a href="#cb8-20"></a>Default: On</span>
+<span id="cb8-21"><a href="#cb8-21"></a></span>
+<span id="cb8-22"><a href="#cb8-22"></a>Parameter: sample</span>
+<span id="cb8-23"><a href="#cb8-23"></a>Widget: CheckboxInput</span>
+<span id="cb8-24"><a href="#cb8-24"></a>Label: Add sample blog posts</span>
+<span id="cb8-25"><a href="#cb8-25"></a>Default: On</span>
+<span id="cb8-26"><a href="#cb8-26"></a></span>
+<span id="cb8-27"><a href="#cb8-27"></a>Parameter: theme_example</span>
+<span id="cb8-28"><a href="#cb8-28"></a>Widget: CheckboxInput</span>
+<span id="cb8-29"><a href="#cb8-29"></a>Label: Add the example site from the theme</span>
+<span id="cb8-30"><a href="#cb8-30"></a>Default: On</span>
+<span id="cb8-31"><a href="#cb8-31"></a></span>
+<span id="cb8-32"><a href="#cb8-32"></a>Parameter: empty_dirs</span>
+<span id="cb8-33"><a href="#cb8-33"></a>Widget: CheckboxInput</span>
+<span id="cb8-34"><a href="#cb8-34"></a>Label: Keep empty directories</span>
+<span id="cb8-35"><a href="#cb8-35"></a>Default: Off</span>
+<span id="cb8-36"><a href="#cb8-36"></a>Position: right</span>
+<span id="cb8-37"><a href="#cb8-37"></a></span>
+<span id="cb8-38"><a href="#cb8-38"></a>Parameter: netlify</span>
+<span id="cb8-39"><a href="#cb8-39"></a>Widget: CheckboxInput</span>
+<span id="cb8-40"><a href="#cb8-40"></a>Label: Create netlify.toml</span>
+<span id="cb8-41"><a href="#cb8-41"></a>Default: On</span>
+<span id="cb8-42"><a href="#cb8-42"></a>Position: right</span>
+<span id="cb8-43"><a href="#cb8-43"></a></span>
+<span id="cb8-44"><a href="#cb8-44"></a>Parameter: .Rprofile</span>
+<span id="cb8-45"><a href="#cb8-45"></a>Widget: CheckboxInput</span>
+<span id="cb8-46"><a href="#cb8-46"></a>Label: Create .Rprofile</span>
+<span id="cb8-47"><a href="#cb8-47"></a>Default: On</span>
+<span id="cb8-48"><a href="#cb8-48"></a>Position: right</span>
+<span id="cb8-49"><a href="#cb8-49"></a></span>
+<span id="cb8-50"><a href="#cb8-50"></a>Parameter: install_hugo</span>
+<span id="cb8-51"><a href="#cb8-51"></a>Widget: CheckboxInput</span>
+<span id="cb8-52"><a href="#cb8-52"></a>Label: Install Hugo if not installed</span>
+<span id="cb8-53"><a href="#cb8-53"></a>Default: On</span>
+<span id="cb8-54"><a href="#cb8-54"></a>Position: right</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
